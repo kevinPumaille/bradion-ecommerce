@@ -1,1 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fuente OpenSans */
+.font-openSans-normal {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+* {
+    /* background-color: #fafafa; */
+    
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+
+    color: #0b2135;
+}
+
+body{
+    background-color: #fafafa;
+}
+
+/* Efecto linea deslizante en navBar */
+.LineDeslizante:hover::after {
+    transform: scaleX(1); /* Al hacer hover, la línea se desliza hacia la derecha */
+}
+
+.LineDeslizante::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 1px; /* Ajusta la posición vertical de la línea */
+    width: 100%;
+    height: 2px;
+    background-color: #0b2135; /* Color de la línea */
+    transform: scaleX(0); /* Inicialmente, la línea está oculta */
+    transition: transform 0.3s ease; /* Agrega una transición suave */
+}
+
+.LineDeslizante {
+    position: relative;
+    display: inline-block;
+}
+
+.hoverBtnClaro{
+    background-color: black;
+}
+.hoverBtnClaro:hover{
+    background-color: #0b213511;
+}

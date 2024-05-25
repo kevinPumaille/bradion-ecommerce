@@ -1,0 +1,135 @@
+
+<main>
+    <section class="card">
+        <p-carousel [value]="sliders" [numVisible]="3" [numScroll]="1" [circular]="true" autoplayInterval="3000"
+            [responsiveOptions]="responsiveOptions">
+
+            <ng-template let-item pTemplate="item">
+
+                <div>
+                    <img [src]="item" alt="">
+                </div>
+
+            </ng-template>
+
+        </p-carousel>
+    </section>
+
+    <section class="p-4">
+        <h2 class="text-5xl p-4">Categorias</h2>
+
+        <article class="flex flex-wrap justify-center text-center">
+
+            <div class="p-8 lg:w-1/4 md:w-1/2 sm:w-full">
+                <button
+                    class="relative w-full h-full p-0 border-none bg-transparent transition-opacity duration-300 ease-in-out hover:opacity-75"
+                    onclick="tuFuncion()">
+                    <img src="../../../assets/categorias/botines.webp" alt="" class="w-full h-auto">
+                </button>
+                <p class="text-center mt-4">Botines</p>
+            </div>
+
+            <div class="p-8 lg:w-1/4 md:w-1/2 sm:w-full">
+                <button
+                    class="relative w-full h-full p-0 border-none bg-transparent transition-opacity duration-300 ease-in-out hover:opacity-75"
+                    onclick="tuFuncion()">
+                    <img src="../../../assets/categorias/sandalias.webp" alt="" class="w-full h-auto">
+                </button>
+                <p class="text-center mt-4">Sandalias</p>
+            </div>
+
+            <div class="p-8 lg:w-1/4 md:w-1/2 sm:w-full">
+                <button
+                    class="relative w-full h-full p-0 border-none bg-transparent transition-opacity duration-300 ease-in-out hover:opacity-75"
+                    onclick="tuFuncion()">
+                    <img src="../../../assets/categorias/zapatillas.webp" alt="" class="w-full h-auto">
+                </button>
+                <p class="text-center mt-4">Zapatillas</p>
+            </div>
+
+            <div class="p-8 lg:w-1/4 md:w-1/2 sm:w-full">
+                <button
+                    class="relative w-full h-full p-0 border-none bg-transparent transition-opacity duration-300 ease-in-out hover:opacity-75"
+                    onclick="tuFuncion()">
+                    <img src="../../../assets/categorias/zapatos.webp" alt="" class="w-full h-auto">
+                </button>
+                <p class="text-center mt-4">Zapatos</p>
+            </div>
+
+        </article>
+
+    </section>
+
+    <section class="flex justify-center p-8">
+        <img src="../../../assets/carrousel3.webp" alt="">
+    </section>
+
+    <section class="flex flex-wrap">
+
+        <!-- Item 1 -->
+        <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 text-center p-8" [style]="{ 'background-color': '#FFD700'}">
+            <div class="flex justify-center h-24 bg-bgAmarillo">
+                <img src="../../../assets/store.png" alt="" class="bg-bgAmarillo">
+            </div>
+            <h5 class="text-sm font-bold p-8 bg-bgAmarillo">Footloose Sostenible</h5>
+            <p class="bg-bgAmarillo">Compra online y recoge en la tienda más cercana a ti.</p>
+            <p class="bg-bgAmarillo">¡Ver tiendas!</p>
+        </div>
+    
+        <!-- Item 2 -->
+        <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 text-center p-8" [style]="{ 'background-color': '#FFD700'}">
+            <div class="flex justify-center h-24 bg-bgAmarillo">
+                <img src="../../../assets/boleta.png" alt="" class="bg-bgAmarillo">
+            </div>
+            <h5 class="text-sm font-bold p-8 bg-bgAmarillo">Revisa tu boleta</h5>
+            <p class="bg-bgAmarillo">Consulta y descarga tu boleta o factura fácilmente.</p>
+            <p class="bg-bgAmarillo">¡Ver tiendas!</p>
+        </div>
+    
+        <!-- Item 3 -->
+        <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 text-center p-8" [style]="{ 'background-color': '#FFD700'}">
+            <div class="flex justify-center h-24 bg-bgAmarillo">
+                <img src="../../../assets/seguimiento.png" alt="" class="bg-bgAmarillo">
+            </div>
+            <h5 class="text-sm font-bold p-8 bg-bgAmarillo">Seguimiento de pedidos</h5>
+            <p class="bg-bgAmarillo">¡Rastrea tu pedido con tu número de orden sin preocupaciones!</p>
+            <p class="bg-bgAmarillo">¡Ver tiendas!</p>
+        </div>
+    
+        <!-- Item 4 -->
+        <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 xl:w-1/4 text-center p-8" [style]="{ 'background-color': '#FFD700'}">
+            <div class="flex justify-center h-24 bg-bgAmarillo">
+                <img src="../../../assets/sostenible.png" alt="" class="bg-bgAmarillo">
+            </div>
+            <h5 class="text-sm font-bold p-8 bg-bgAmarillo">Footloose Sostenible</h5>
+            <p class="bg-bgAmarillo">Únete a nuestro proyecto y construyamos un mejor futuro.</p>
+            <p class="bg-bgAmarillo">¡Ver tiendas!</p>
+        </div>
+    
+    </section>
+
+    <section class="flex justify-center p-8">
+        <img src="../../../assets/carousel8.webp" alt="">
+    </section>
+
+    <section class="p-4">
+        <h2 class="text-5xl p-4 ">Nuestras marcas</h2>
+        <div class="card">
+            <p-carousel [value]="carouselMarcas" [numVisible]="5" [numScroll]="3" [circular]="true" autoplayInterval="3000"
+                [responsiveOptions]="responsiveOptions2" class="sm:w-full md:w-4/5 lg:w-3/4 xl:w-2/3 2xl:w-1/2">
+    
+                <ng-template let-item pTemplate="item">
+    
+                    <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
+                        <div class="mb-3">
+                            <img [src]="item" alt="carousel-item" class="w-100 shadow-2" />
+                        </div>
+                    </div>
+    
+                </ng-template>
+    
+            </p-carousel>
+        </div>
+    </section>
+</main>
+

@@ -1,0 +1,21 @@
+@if(loading){
+    <section class="flex justify-center min-h-dvh">
+
+        <div class="grid grid-cols-1 py-4 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            @for(producto of productosLoading; track producto){
+                <app-product-card-uno />
+            }
+        </div>
+    
+    </section>
+}@else{
+    <section class="flex justify-center min-h-dvh">
+
+        <div class="grid grid-cols-1 py-4 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            @for(producto of productos; track producto.idProducto){
+                <app-product-card-uno [loading]="loading" [productoItem]="producto" />
+            }
+        </div>
+    
+    </section>
+}
