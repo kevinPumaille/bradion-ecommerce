@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { Producto } from '../../core/models/producto.model';
 
 @Component({
   selector: 'app-product-card-dos',
@@ -9,5 +10,7 @@ import { Component } from '@angular/core';
   styleUrl: './product-card-dos.component.css'
 })
 export class ProductCardDosComponent {
+
+  productoItem = input<Producto>();
 
 }

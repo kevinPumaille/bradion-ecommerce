@@ -2,7 +2,8 @@
 
     <ul>
         <li class="font-bold ">
-            <button [routerLink]="'/'" class=" p-2 rounded-md hover:bg-hoverBtnClaro transition duration-300">Bradion</button>
+            <button [routerLink]="'/'"
+                class=" p-2 rounded-md hover:bg-hoverBtnClaro transition duration-300">Bradion</button>
         </li>
     </ul>
 
@@ -37,7 +38,8 @@
         </li>
 
         <li class="font-bold ">
-            <button [routerLink]="'/'" class=" p-2 rounded-md hover:bg-hoverBtnClaro transition duration-300">Bradion</button>
+            <button [routerLink]="'/'"
+                class=" p-2 rounded-md hover:bg-hoverBtnClaro transition duration-300">Bradion</button>
         </li>
     </ul>
 
@@ -49,7 +51,7 @@
             </button>
         </li>
         <li>
-            <button  (click)="sidebarCarritoVisible = true">
+            <button (click)="sidebarCarritoVisible = true">
                 <i class="pi pi-shopping-cart hover:bg-hoverBtnClaro rounded-full p-1 transition duration-300"
                     style="font-size: 1.5rem"></i>
             </button>
@@ -60,12 +62,14 @@
 
 
 <!-- SideBar Menu -->
-<p-sidebar [(visible)]="sidebarVisible"  position="left">
+<p-sidebar [(visible)]="sidebarVisible" position="left">
     <ng-template pTemplate="content">
         <nav class="w-full h-full ">
             <ul class="flex gap-4 flex-col text-center">
-                <li class="LineDeslizante"><button (click)="cerrarSideBar()" [routerLink]="'mujeres'">Mujeres</button></li>
-                <li class="LineDeslizante"><button (click)="cerrarSideBar()" [routerLink]="'hombres'">Hombres</button></li>
+                <li class="LineDeslizante"><button (click)="cerrarSideBar()" [routerLink]="'mujeres'">Mujeres</button>
+                </li>
+                <li class="LineDeslizante"><button (click)="cerrarSideBar()" [routerLink]="'hombres'">Hombres</button>
+                </li>
                 <li class="LineDeslizante"><button (click)="cerrarSideBar()" [routerLink]="'niños'">Niños</button></li>
                 <li class="LineDeslizante"><button (click)="cerrarSideBar()" [routerLink]="'niñas'">Niñas</button></li>
             </ul>
@@ -75,35 +79,41 @@
 
 <!-- SideBar Carrito -->
 <p-sidebar [(visible)]="sidebarCarritoVisible" position="right" showCloseIcon="false">
-    <ng-template pTemplate="header">
-        <span class="w-full font-semibold text-xl text-center">Carrito</span>
-    </ng-template>
 
-    <ng-template pTemplate="content">
-        <div>
-            <app-product-card-dos />
-            <app-product-card-dos />
-            <app-product-card-dos />
-            <app-product-card-dos />
-            <app-product-card-dos />
-            <app-product-card-dos />
-            <app-product-card-dos />
-            <app-product-card-dos />
-            <app-product-card-dos />
-        </div>
-    </ng-template>
+    @if(carritoList$ | async; as carritoList){
 
-    <ng-template pTemplate="footer">
-        <section class="">
-            <div class="grid grid-cols-2 py-4">
-                <p>Total</p>
-                <p class="text-end">$ 120</p>
+        <ng-template pTemplate="header">
+            <span class="w-full font-semibold text-xl text-center">Carrito</span>
+        </ng-template>
+
+        <ng-template pTemplate="content">
+            <div>
+
+                @if(carritoList.total == 0){
+                    <p class="text-center">Carrito basio</p>
+                }@else {
+                    @for(cardItem of carritoList.items; track cardItem){
+                        <app-product-card-dos />
+                    }
+                }
+
             </div>
-            <div >
-                <button class="w-full cerrarPedidoBtn hover:bg-hoverBtnAgregarCarrito rounded-md py-1 px-2 transition duration-300">
-                    <p class="text-bgWhite">Cerrar Pedido</p>
-                </button>
-            </div>
-        </section>
-    </ng-template>
+        </ng-template>
+
+        <ng-template pTemplate="footer">
+            <section class="">
+                <div class="grid grid-cols-2 py-4">
+                    <p>Total</p>
+                    <p class="text-end">$ {{carritoList.total}}</p>
+                </div>
+                <div>
+                    <button
+                        class="w-full cerrarPedidoBtn hover:bg-hoverBtnAgregarCarrito rounded-md py-1 px-2 transition duration-300">
+                        <p class="text-bgWhite">Cerrar Pedido</p>
+                    </button>
+                </div>
+            </section>
+        </ng-template>
+
+    }
 </p-sidebar>

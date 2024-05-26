@@ -1,12 +1,12 @@
 <section class="grid grid-cols-1">
     <div class="grid grid-cols-2">
-        <p>Tenis space</p>
-        <p class="text-end">$ 50</p>
+        <p>{{productoItem()?.nombre}}</p>
+        <p class="text-end">$ {{productoItem()?.precio}}</p>
     </div>
 
     <section class="grid grid-cols-2 ">
         <div class="w-24 h-24 flex justify-center">
-            <img class="w-18" src="../../../../assets/productos/botas.jpg" alt="">
+            <img class="w-18" src="{{productoItem()?.urlImagen}}" alt="">
         </div>
         <div class="grid grid-cols-4 items-center text-center">
             <button>

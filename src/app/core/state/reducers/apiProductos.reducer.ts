@@ -1,25 +1,34 @@
 import { createReducer, on } from '@ngrx/store';
 import { ApiProductosState } from '../../models/apiProductos.model';
-import { loadProduct, loadedProduct } from '../actions/apiProductos.action';
-import { Producto } from '../../models/producto.model';
-
-
-
+import { loadHombresProduct, loadMujeresProduct, loadNinasProduct, loadNinosProduct, loadedHombresProduct, loadedMujeresProduct, loadedNinasProduct, loadedNinosProduct } from '../actions/apiProductos.action';
 
 export const initialState: ApiProductosState = {
-    productos: [],
-    loading: false
+    niños: {
+        productos: [],
+        loading: false
+    },
+    niñas: {
+        productos: [],
+        loading: false
+    },
+    hombres: {
+        productos: [],
+        loading: false
+    },
+    mujeres: {
+        productos: [],
+        loading: false
+    }
 };
 
 export const productosApiReducer = createReducer(
     initialState,
-    on(loadProduct, (_state) => _state ),
-    on(loadedProduct, (_state, { productos }) => { 
-        const updatedProductos: Producto[] = [..._state.productos, ...productos];
-        return {
-            ..._state,
-            productos: updatedProductos,
-            loading: true
-        }
-     } ),
+    on(loadHombresProduct, (_state) => _state ),
+    on(loadedHombresProduct, (_state, { productos }) => { return { ..._state, hombres: {productos, loading: true}, } } ),
+    on(loadMujeresProduct, (_state) => _state ),
+    on(loadedMujeresProduct, (_state, { productos }) => { return { ..._state, mujeres: {productos, loading: true}, } } ),
+    on(loadNinasProduct, (_state) => _state ),
+    on(loadedNinasProduct, (_state, { productos }) => { return { ..._state, niñas: {productos, loading: true}, } } ),
+    on(loadNinosProduct, (_state) => _state ),
+    on(loadedNinosProduct, (_state, { productos }) => { return { ..._state, niños: {productos, loading: true}, } } ),
 );

@@ -1,21 +1,30 @@
-@if(loading){
-    <section class="flex justify-center min-h-dvh">
+@if(productosList$ | async; as productosList){
 
-        <div class="grid grid-cols-1 py-4 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            @for(producto of productosLoading; track producto){
-                <app-product-card-uno />
-            }
-        </div>
-    
-    </section>
-}@else{
-    <section class="flex justify-center min-h-dvh">
+    @if(!productosList.loading){
+        <section class="flex justify-center min-h-dvh">
 
-        <div class="grid grid-cols-1 py-4 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            @for(producto of productos; track producto.idProducto){
-                <app-product-card-uno [loading]="loading" [productoItem]="producto" />
-            }
-        </div>
+            <div class="grid grid-cols-1 py-4 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    <app-product-card-uno />
+                    <app-product-card-uno />
+                    <app-product-card-uno />
+                    <app-product-card-uno />
+                    <app-product-card-uno />
+            </div>
+        
+        </section>
+    }@else{
+        <section class="flex justify-center min-h-dvh">
+
+            <div class="grid grid-cols-1 py-4 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                @if(productosList$ | async; as productosList){
     
-    </section>
+                    @for(producto of productosList.productos; track producto.id){
+                        <app-product-card-uno [loading]="!productosList.loading" [productoItem]="producto" />
+                    }
+                }
+                
+            </div>
+        
+        </section>
+    }
 }

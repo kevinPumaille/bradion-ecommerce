@@ -8,8 +8,6 @@ import { Producto } from './core/models/producto.model';
 import { selectCartState } from './core/state/selectors/carrito.selector';
 import { addProduct, clearCart, removeProduct } from './core/state/actions/carrito.action';
 import { CartState } from './core/models/carrito.model';
-import { loadProduct } from './core/state/actions/apiProductos.action';
-import { selectApiProductos, selectBookCollection } from './core/state/selectors/apiProductos.selector';
 import { ApiProductosState } from './core/models/apiProductos.model';
 
 @Component({

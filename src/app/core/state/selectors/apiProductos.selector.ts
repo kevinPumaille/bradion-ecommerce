@@ -5,7 +5,19 @@ import { ApiProductosState } from '../../models/apiProductos.model';
 export const selectApiProductos = createFeatureSelector<ApiProductosState>('productosApi');
 
 
-export const selectBookCollection = createSelector(
+export const selectProductHombres = createSelector(
     selectApiProductos,
-    (state) => state.productos
+    (state) => state.hombres
+);
+export const selectProductMujeres = createSelector(
+    selectApiProductos,
+    (state) => state.mujeres
+);
+export const selectProductNinos = createSelector(
+    selectApiProductos,
+    (state) => state.niños
+);
+export const selectProductNinas = createSelector(
+    selectApiProductos,
+    (state) => state.niñas
 );

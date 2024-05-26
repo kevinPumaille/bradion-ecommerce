@@ -60,9 +60,7 @@ export class ProductosService {
       },
     ];
 
-    return of(productos).pipe(
-      delay(1500)
-    )
+    return of(productos);
   }
 
   productosNinosList(): Observable<any> {

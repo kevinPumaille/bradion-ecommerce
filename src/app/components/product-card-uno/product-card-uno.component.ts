@@ -1,15 +1,8 @@
-import { Component, input } from '@angular/core';
+import { Component, OnInit, inject, input } from '@angular/core';
 import { SkeletonModule } from 'primeng/skeleton';
-
-
-interface Producto{
-  idProducto: number;
-  nombreProducto: String;
-  precioProducto: number;
-  cantidadProducto?: number;
-  precioTotal?: number;
-  urlImagen?: string;
-}
+import { Producto } from '../../core/models/producto.model';
+import { Store } from '@ngrx/store';
+import { addProduct } from '../../core/state/actions/carrito.action';
 
 @Component({
   selector: 'app-product-card-uno',
@@ -22,8 +15,15 @@ interface Producto{
 })
 export class ProductCardUnoComponent {
 
+  store = inject( Store );
+
+  // cardItem$: Observable<CartState> = this.store.select(selectCartState);
+
   loading = input(true);
   productoItem = input<Producto>();
 
-  
+  agregarProducto() {
+    console.log(this.productoItem())
+    this.store.dispatch(addProduct({producto: this.productoItem()! }));
+  }
 }
