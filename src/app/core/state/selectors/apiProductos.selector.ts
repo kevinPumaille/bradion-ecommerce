@@ -8,8 +8,4 @@ export const selectApiProductos = createFeatureSelector<ApiProductosState>('prod
 export const selectBookCollection = createSelector(
     selectApiProductos,
     (state) => state.productos
-    // selectCollectionState,
-    // (books, collection) => {
-    //     return collection.map((id) => books.find((book) => book.id === id)!);
-    // }
 );

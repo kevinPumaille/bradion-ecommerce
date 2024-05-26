@@ -33,7 +33,7 @@ export const cartReducer = createReducer(
     }),
     on(removeProduct, (state, { productoId }) => {
         const existingItem = state.items.find(item => item.producto.id === productoId);
-
+        console.log(existingItem)
         if (!existingItem) return state;
 
         const updatedItems = existingItem.cantidad > 1
@@ -50,9 +50,17 @@ export const cartReducer = createReducer(
             total
         };
     }),
-    on(clearCart, state => initialState)
-);
+    on(clearCart, (state, { productoId }) => {
 
-// export function cartReducer(state: CartState | undefined, action: Action) {
-//     return _cartReducer(state, action);
-// }
+        const updatedItems = state.items.filter(item => item.producto.id !== productoId);
+
+        const updateTotal = state.items.reduce((total, item) => total + item.cantidad, 0);
+
+        return {
+            ...state,
+            items: updatedItems,
+            total: updateTotal 
+        };
+
+    })
+);

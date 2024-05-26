@@ -9,5 +9,3 @@ export const loadedProduct = createAction(
     '[Producto List] Loaded Success',
     props<{ productos: Producto[] }>()
 );
-
-// export const clearCart = createAction('[Cart] Clear Cart');

@@ -5,7 +5,6 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 // import { selectBooks } from './core/state/selectors/books.selectors';
 import { Producto } from './core/models/producto.model';
-import { ProductosApiActions } from './core/state/actions/books.action';
 import { selectCartState } from './core/state/selectors/carrito.selector';
 import { addProduct, clearCart, removeProduct } from './core/state/actions/carrito.action';
 import { CartState } from './core/models/carrito.model';
@@ -27,14 +26,14 @@ export class AppComponent implements OnInit{
 
   store = inject(Store<Producto>);
   bookList$: Observable<CartState> = this.store.select(selectCartState);
-  productosList$: Observable<ApiProductosState> = this.store.select(selectApiProductos);
-  productosList2$: Observable<Producto[]> = this.store.select(selectBookCollection);
+  // productosList$: Observable<ApiProductosState> = this.store.select(selectApiProductos);
+  // productosList2$: Observable<Producto[]> = this.store.select(selectBookCollection);
 
   constructor() {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(loadProduct())
+    // this.store.dispatch(loadProduct())
   }
   
 
@@ -47,6 +46,14 @@ export class AppComponent implements OnInit{
         urlImagen: "../../../../assets/productos/sandalias_delia_para_ninas.jpg"
     }
     }));
+    this.store.dispatch(addProduct({
+      producto: {
+        id: 3,
+        nombre: 'Sandalias Delia',
+        precio: 20,
+        urlImagen: "../../../../assets/productos/sandalias_delia_para_ninas.jpg"
+    }
+    }));
   }
 
   decrement() {
@@ -54,6 +61,6 @@ export class AppComponent implements OnInit{
   }
 
   reset() {
-    this.store.dispatch(clearCart());
+    this.store.dispatch(clearCart({ productoId: 4 }));
   }
 }
