@@ -17,8 +17,6 @@ export class ProductCardUnoComponent {
 
   store = inject( Store );
 
-  // cardItem$: Observable<CartState> = this.store.select(selectCartState);
-
   loading = input(true);
   productoItem = input<Producto>();
 

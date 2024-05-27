@@ -30,7 +30,5 @@ export class MujeresPageComponent implements OnInit{
     this.store.dispatch(loadMujeresProduct())
   }
 
-  agregarProducto(){
-    
-  }
+  
 }

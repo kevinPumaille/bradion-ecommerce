@@ -51,10 +51,15 @@ export const cartReducer = createReducer(
         };
     }),
     on(clearCart, (state, { productoId }) => {
-
+        let updateTotal = 0;
         const updatedItems = state.items.filter(item => item.producto.id !== productoId);
 
-        const updateTotal = state.items.reduce((total, item) => total + item.cantidad, 0);
+        const precioTotalProducto = state.items.filter( item => {
+            if(item.producto.id == productoId){
+                updateTotal = state.total - item.cantidad * item.producto.precio;
+            }
+        })
+        // const updateTotal = state.items.reduce((total, item) => total + item.cantidad * item.producto.precio, 0);
 
         return {
             ...state,

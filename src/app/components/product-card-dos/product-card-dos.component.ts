@@ -1,5 +1,8 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { Producto } from '../../core/models/producto.model';
+import { CartItem } from '../../core/models/carrito.model';
+import { Store } from '@ngrx/store';
+import { addProduct, clearCart, removeProduct } from '../../core/state/actions/carrito.action';
 
 @Component({
   selector: 'app-product-card-dos',
@@ -11,6 +14,19 @@ import { Producto } from '../../core/models/producto.model';
 })
 export class ProductCardDosComponent {
 
-  productoItem = input<Producto>();
+  store = inject( Store );
 
+  productoItem = input<CartItem>();
+
+  sumarProducto(producto: Producto){
+    this.store.dispatch(addProduct({producto}));
+  }
+
+  restarProducto(productoId: number){
+    this.store.dispatch(removeProduct({productoId}));
+  }
+  
+  limpiarProducto(productoId: number){
+    this.store.dispatch(clearCart({productoId}));
+  }
 }

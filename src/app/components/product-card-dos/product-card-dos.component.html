@@ -1,24 +1,24 @@
 <section class="grid grid-cols-1">
     <div class="grid grid-cols-2">
-        <p>{{productoItem()?.nombre}}</p>
-        <p class="text-end">$ {{productoItem()?.precio}}</p>
+        <p>{{productoItem()?.producto?.nombre}}</p>
+        <p class="text-end">$ {{productoItem()?.producto?.precio}}</p>
     </div>
 
     <section class="grid grid-cols-2 ">
         <div class="w-24 h-24 flex justify-center">
-            <img class="w-18" src="{{productoItem()?.urlImagen}}" alt="">
+            <img class="w-18" src="{{productoItem()?.producto?.urlImagen}}" alt="">
         </div>
         <div class="grid grid-cols-4 items-center text-center">
-            <button>
+            <button (click)="sumarProducto(productoItem()?.producto!)">
                 <i class="pi pi-plus hover:bg-hoverBtnClaro rounded-full p-1 transition duration-300"
                     style="font-size: 0.7rem"></i>
             </button>
-            <p>2</p>
-            <button>
+            <p>{{productoItem()?.cantidad}}</p>
+            <button (click)="restarProducto(productoItem()?.producto?.id!)">
                 <i class="pi pi-minus hover:bg-hoverBtnClaro rounded-full p-1 transition duration-300"
                     style="font-size: 0.7rem"></i>
             </button>
-            <button>
+            <button (click)="limpiarProducto(productoItem()?.producto?.id!)">
                 <i class="pi pi-trash hover:bg-hoverBtnClaro rounded-full p-1 transition duration-300"
                     style="font-size: 0.9rem"></i>
             </button>
