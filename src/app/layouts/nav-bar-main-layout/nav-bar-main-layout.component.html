@@ -18,8 +18,12 @@
                     style="font-size: 1.5rem"></i>
             </button>
         </li>
-        <li>
+        <li class="relative">
+            
             <button (click)="sidebarCarritoVisible = true">
+                @if(carritoList$ | async; as carritoList){
+                    <span class="w-4 absolute bg-bgRed right-0 text-xs text-center text-white rounded-full">{{carritoList.items.length}}</span>
+                }
                 <i class="pi pi-shopping-cart hover:bg-hoverBtnClaro rounded-full p-1 transition duration-300"
                     style="font-size: 1.5rem"></i>
             </button>
@@ -50,8 +54,11 @@
                     style="font-size: 1.5rem"></i>
             </button>
         </li>
-        <li>
+        <li class="relative">
             <button (click)="sidebarCarritoVisible = true">
+                @if(carritoList$ | async; as carritoList){
+                    <span class="w-4 absolute bg-bgRed right-0 text-xs text-center text-white rounded-full">{{carritoList.items.length}}</span>
+                }
                 <i class="pi pi-shopping-cart hover:bg-hoverBtnClaro rounded-full p-1 transition duration-300"
                     style="font-size: 1.5rem"></i>
             </button>

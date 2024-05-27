@@ -11,7 +11,8 @@ module.exports = {
         bgNegro: '#000000',
         bgAmarillo: '#FFD700',
         bgBtnAgregarCarrito: '#',
-        hoverBtnAgregarCarrito: '#3b3be9d6'
+        hoverBtnAgregarCarrito: '#3b3be9d6',
+        bgRed: '#ff0000'
       }
     },
   },
